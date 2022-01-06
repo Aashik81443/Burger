@@ -8,7 +8,27 @@ $('.slick-carousel').slick({
     
   });
 
-  
+  $('.ham-wrap'). click (function(){
+    $('.header').toggleClass('mobile-menu-open');
+});
+
+$(window).on('load', function(){
+    var winWidth = $(window).width();
+    console.log(winWidth);
+    if(winWidth < 1025) {
+        $('.submenu > a').on('click', function(){
+        $(this).parent().toggleClass('active');
+        })
+    }
+});
+
+$(window).scroll(function(){
+    if($(this).scrollTop() > 100){
+        $('.header').addClass('sticky')
+    } else{
+        $('.header').removeClass('sticky')
+    }
+});
 
   // $(function(){
   //   $('.slider-thumb').slick({
